@@ -1,122 +1,122 @@
-import React, { useRef, useState } from 'react';
-import { Mail, Phone, Linkedin, Github, Send } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useHooks';
+import React, { useState } from "react";
+import { Copy, Check, ArrowUpRight, Github, Linkedin, Phone, FileText } from "lucide-react";
+import { personalInfo } from "@/data/portfolioData";
+import { useToast } from "@/components/ui/toast";
+import InteractivePile from "@/components/InteractivePile";
 
-const Contact = () => {
-  const contactRef = useRef(null);
-  const isVisible = useIntersectionObserver(contactRef);
-  const [emailCopied, setEmailCopied] = useState(false);
+export default function Contact() {
+  const [copied, setCopied] = useState(false);
+  const { showToast } = useToast();
 
-  const contactCards = [
-    {
-      label: 'Email',
-      value: 'adarsh042021@outlook.com',
-      icon: Mail,
-      action: 'mailto:adarsh042021@outlook.com',
-    },
-    {
-      label: 'Phone',
-      value: '+91 7439473588',
-      icon: Phone,
-      action: 'tel:+917439473588',
-    },
-    {
-      label: 'LinkedIn',
-      value: 'linkedin.com/in/he-adarsh/',
-      icon: Linkedin,
-      action: 'https://www.linkedin.com/in/he-adarsh/',
-    },
-    {
-      label: 'GitHub',
-      value: 'github.com/h-adarsh',
-      icon: Github,
-      action: 'https://github.com/h-adarsh',
-    },
-  ];
-
-  const handleEmailClick = () => {
-    navigator.clipboard.writeText('adarsh042021@outlook.com');
-    setEmailCopied(true);
-    setTimeout(() => setEmailCopied(false), 2000);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopied(true);
+    showToast?.("Email copied to clipboard!");
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <section
-      id="contact"
-      ref={contactRef}
-      className="py-16 md:py-24 px-5 md:px-0 relative mb-12 md:mb-0"
-    >
-      <div className="max-w-container mx-auto">
-        {/* Section Title */}
-        <h2
-          className={`text-5xl md:text-[56px] font-bold font-serif text-[#1E2124] mb-8 text-center transition-all duration-1000 ${
-            isVisible ? 'animate-slide-in-left' : 'opacity-0 -translate-x-10'
-          }`}
-        >
+    <section id="contact" className="py-12 sm:py-20">
+      <div className="mb-8">
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans">
           Get in Touch
         </h2>
+        <p className="text-xs sm:text-sm font-mono text-muted-foreground mt-1">
+          // open for security engineering, appsec & full-stack opportunities
+        </p>
+      </div>
 
-        {/* Description */}
-        <p
-          className={`text-body md:text-body-lg text-[#4A4E54] text-center mb-16 md:mb-2xl max-w-2xl mx-auto transition-all duration-1000 ${
-            isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'
-          }`}
-          style={{ animationDelay: '0.2s' }}
-        >
-          I'm currently seeking full-time opportunities in Security Engineering, AppSec,
-          and full-stack development roles. If you're building a security team or have a
-          project that needs secure architecture, let's connect.
+      <div className="p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 mb-12 shadow-sm">
+        <p className="text-sm sm:text-base text-muted-foreground mb-4">
+          Whether you have a question about security automation, want to discuss systems architecture, or have an engineering role to discuss—drop me a line.
         </p>
 
-        {/* Contact Cards Grid */}
-        <div
-          className={`grid grid-cols-1 md:grid-cols-2 gap-5 mb-16 md:mb-2xl max-w-2xl mx-auto transition-all duration-1000 ${
-            isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'
-          }`}
-          style={{ animationDelay: '0.3s' }}
-        >
-          {contactCards.map((card, idx) => (
-            <a
-              key={card.label}
-              href={card.action}
-              target={card.action.startsWith('http') ? '_blank' : undefined}
-              rel={card.action.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className={`bg-[#F2F3F3] rounded-2xl p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-300 hover:translate-y-[-2px] group transform ${
-                isVisible ? 'animate-scale-in' : 'opacity-0 scale-95'
-              }`}
-              style={{ animationDelay: `${0.4 + idx * 0.1}s` }}
-              aria-label={card.label}
-            >
-              <card.icon size={28} className="text-[#4A7A8C] flex-shrink-0" />
-              <div className="min-w-0">
-                <p className="text-sm text-[#7A8088]">{card.label}</p>
-                <p className="text-body font-medium text-[#1E2124] truncate group-hover:text-[#4A7A8C] transition-colors duration-300">
-                  {card.value}
-                </p>
-              </div>
-            </a>
-          ))}
-        </div>
-
-        {/* Download Resume Button at the bottom */}
-        <div className="flex flex-col items-center gap-8">
+        {/* Big Editorial Email Row (Krishna Gupta style) */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 border-y border-border/50 my-6">
           <a
-            href="/Adarsh_Singh_Resume.pdf"
-            download
-            className="flex items-center gap-3 bg-[#1E2124] hover:bg-[#4A7A8C] text-white px-12 py-4 rounded-lg transition-all duration-300 hover:scale-105 group"
+            href={`mailto:${personalInfo.email}`}
+            className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-foreground hover:opacity-80 transition-opacity tracking-tight break-all"
           >
-            <span aria-hidden="true">📄</span>
-            <span className="font-semibold">Download Resume</span>
+            {personalInfo.email}
           </a>
 
-          {/* Decorative Quote */}
-          <p className="text-body md:text-body-lg text-[#4A4E54] italic font-serif text-center mt-4">
-            Engineered for security, powered by React
-          </p>
+          <button
+            onClick={handleCopy}
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-border bg-background hover:bg-secondary text-xs font-mono text-foreground transition-all duration-200 active:scale-95 shrink-0 self-start sm:self-auto"
+            title="Copy email to clipboard"
+          >
+            {copied ? (
+              <>
+                <Check className="h-3.5 w-3.5 text-emerald-500" />
+                <span className="text-emerald-500 font-semibold">copied</span>
+              </>
+            ) : (
+              <>
+                <Copy className="h-3.5 w-3.5 text-muted-foreground" />
+                <span>copy email</span>
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* Social and Quick Actions */}
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+          <a
+            href={personalInfo.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/60 hover:border-foreground/40 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Github className="h-3.5 w-3.5" />
+            github.com/h-adarsh
+            <ArrowUpRight className="h-3 w-3 opacity-60" />
+          </a>
+
+          <a
+            href={personalInfo.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/60 hover:border-foreground/40 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Linkedin className="h-3.5 w-3.5" />
+            linkedin.com/in/h-adarsh
+            <ArrowUpRight className="h-3 w-3 opacity-60" />
+          </a>
+
+          <a
+            href={`tel:${personalInfo.phone.replace(/\s+/g, "")}`}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/60 hover:border-foreground/40 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Phone className="h-3.5 w-3.5" />
+            {personalInfo.phone}
+          </a>
+
+          <a
+            href={personalInfo.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/60 hover:border-foreground/40 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <FileText className="h-3.5 w-3.5" />
+            Resume
+            <ArrowUpRight className="h-3 w-3 opacity-60" />
+          </a>
+
+          <a
+            href={personalInfo.certificateUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/60 hover:border-foreground/40 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <span className="text-amber-500">📜</span>
+            Titan Certificate
+            <ArrowUpRight className="h-3 w-3 opacity-60" />
+          </a>
         </div>
       </div>
+
+      {/* Interactive "maybe I'll use this someday" Pile & Krishna Gupta style Colophon */}
+      <InteractivePile />
     </section>
   );
-};
-
-export default Contact;
+}

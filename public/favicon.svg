@@ -1,4 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="50" fill="#C57549"/>
-  <text x="50" y="68" font-family="Georgia, serif" font-size="55" font-weight="bold" fill="#FFFFFF" text-anchor="middle">A</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .bg {
+        fill: #111114;
+        stroke: rgba(255, 255, 255, 0.18);
+      }
+      .letter {
+        font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+        font-size: 46px;
+        font-weight: 700;
+        fill: #fafafa;
+      }
+      @media (prefers-color-scheme: light) {
+        .bg {
+          fill: #ffffff;
+          stroke: #d4d4d8;
+        }
+        .letter {
+          fill: #18181b;
+        }
+      }
+    </style>
+  </defs>
+  <rect width="62" height="62" x="1" y="1" rx="16" stroke-width="2" class="bg" />
+  <text x="32" y="46" text-anchor="middle" class="letter">a.</text>
 </svg>

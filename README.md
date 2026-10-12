@@ -1,138 +1,86 @@
-# Adarsh Singh - Portfolio Website
+# Adarsh Singh — Portfolio Website
 
-A minimalist, fully responsive developer portfolio built with modern web technologies.
+A minimal, craft-driven developer portfolio built with modern React, Tailwind CSS, and shadcn/ui components.
 
-## 🎨 Features
+Inspired by modern design engineering sensibilities: warm & tech minimalism, clean typography pairings (Geist & Instrument Serif), and crisp 1px borders.
 
-- **Minimalist Design** - Clean, elegant interface with warm beige (#E8E3D5) and orange (#D4845C) color palette
-- **Fully Responsive** - Optimized for mobile, tablet, and desktop
-- **Smooth Animations** - CSS keyframe animations with scroll triggers
-- **Blog Section** - Article listing with search, filter, and modal view
-- **SEO Optimized** - Meta tags, sitemap, robots.txt, and structured data
-- **Accessibility** - WCAG 2.1 AA compliance with ARIA labels and keyboard navigation
-- **Performance** - Fast load times with Vite and optimized assets
+---
+
+## 🎨 Visual System & Highlights
+
+- **Aesthetic**: Tech minimalism with editorial warmth (Geist, Geist Mono, Instrument Serif).
+- **Theming**: Flawless Dark & Light mode toggle with anti-flicker script and persistent state.
+- **Reading Width**: Optimized single-column container (`max-w-3xl`) for maximum legibility on mobile, tablet, and wide desktop displays.
+- **Interactive Primitives (shadcn/ui)**:
+  - `Tabs`: Dynamic project filtering (`all`, `enterprise`, `open source`).
+  - `Cards`: 1px bordered containers with hover lift and arrow indicators.
+  - `Dialog`: Deep-dive modal views for system architecture breakdowns and technical essays without page reloads.
+  - `Toast`: Minimalist feedback notification for 1-click email copy.
+  - `Badge`: Semantic pill badges with monospace metadata (`[Jan 2026]`, `RPA`, `React`).
+- **Live Status Indicator**: Pulsing green dot badge (`InfoSec Intern @ Titan Company Ltd`).
+
+---
 
 ## 🛠️ Tech Stack
 
-- **React** 19.2.0 - UI framework
-- **Vite** 7.3.1 - Build tool
-- **Tailwind CSS** 3.4.17 - Utility-first styling
-- **Lucide React** - Icon library
-- **Google Fonts** - Playfair Display (serif) & Inter (sans-serif)
+- **Framework**: React 19
+- **Bundler**: Vite 7
+- **Styling**: Tailwind CSS 3.4
+- **Primitives**: shadcn/ui (`cva`, `clsx`, `tailwind-merge`)
+- **Icons**: Lucide React
+- **Typography**: Geist (Sans), Geist Mono (Code/Metadata), Instrument Serif (Quotes & Accents)
+
+---
 
 ## 📁 Project Structure
 
 ```
 src/
 ├── components/
-│   ├── Navigation.jsx     # Fixed sidebar navigation
-│   ├── Hero.jsx          # Landing section
-│   ├── Projects.jsx      # Project showcase
-│   ├── Blog.jsx          # Blog articles
-│   ├── Experience.jsx    # Work experience & education
-│   ├── Contact.jsx       # Contact section
-│   ├── ProgressBar.jsx   # Scroll progress indicator
-│   └── LoadingSpinner.jsx # Page loader
-├── hooks/
-│   └── useHooks.js       # Custom React hooks
-├── utils/
-│   └── constants.js      # Design tokens
-├── App.jsx               # Main app component
-└── index.css            # Global styles & animations
+│   ├── ui/
+│   │   ├── badge.jsx       # Semantic & monospace badges
+│   │   ├── button.jsx      # Button & link primitives
+│   │   ├── card.jsx        # Minimal 1px border card system
+│   │   ├── dialog.jsx      # Accessible modal overlays
+│   │   ├── tabs.jsx        # Category switchers
+│   │   └── toast.jsx       # Action toast notifications
+│   ├── Contact.jsx         # Big editorial email & social links
+│   ├── Experience.jsx      # InfoSec vertical timeline & verified certificate
+│   ├── Hero.jsx            # Bio, profile avatar & live status
+│   ├── InteractivePile.jsx # Physics-enabled draggable curiosity desk & sound FX
+│   ├── Kit.jsx             # Categorized tech stack & verified credentials
+│   ├── Navbar.jsx          # Monogram logo & theme toggle
+│   ├── Notes.jsx           # Technical essays with reader modal
+│   └── Projects.jsx        # Project showcases with deep-dive modal
+├── data/
+│   ├── portfolioData.js    # Consolidated profile & project data
+│   └── pileItems.js        # Desk curiosity items & SVG paths
+├── lib/
+│   ├── sound.js            # Web Audio API sound synthesizer
+│   └── utils.js            # twMerge & clsx utility (cn)
+├── App.jsx                 # App root with ToastProvider
+├── index.css               # Design tokens & semantic CSS variables
+└── main.jsx                # React mount entry
 ```
 
-## 🚀 Getting Started
+---
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
+## 🚀 Development & Build
 
 ```bash
 # Install dependencies
 npm install
 
-# Start development server
+# Start local dev server
 npm run dev
 
-# Build for production
+# Run ESLint check
+npm run lint
+
+# Production build
 npm run build
-
-# Preview production build
-npm run preview
 ```
-
-The dev server runs at `http://localhost:5175`
-
-## 📝 Customization
-
-### Update Portfolio Content
-
-Edit the data arrays in each component:
-
-- **Hero.jsx** - Your name, title, social links
-- **Projects.jsx** - Your projects and tech stacks
-- **Experience.jsx** - Skills, education, certifications
-- **Blog.jsx** - Blog articles and categories
-- **Contact.jsx** - Contact information
-
-### Change Colors
-
-Edit the color values in:
-- `tailwind.config.js` - Theme colors
-- `src/utils/constants.js` - Design tokens
-- `src/index.css` - Dark mode colors
-
-### Modify Typography
-
-Update font sizes in `tailwind.config.js` fontSize configuration.
-
-## 📱 Sections
-
-- **Home** - Hero section with introduction
-- **Projects** - Featured project showcase
-- **Blog** - Articles with search and filtering
-- **Experience** - Work experience, skills, education
-- **Contact** - Contact cards and email CTA
-
-## 🎯 Key Features
-
-- **Smooth Scrolling** - Navigation scrolls to sections smoothly
-- **Responsive Navigation** - Desktop sidebar + mobile bottom nav
-- **Search & Filter** - Blog articles with search and category filters
-- **Modal Articles** - Click blog cards to read full articles in modal
-- **Scroll Animations** - Elements animate on scroll with 20% visibility threshold
-- **Loading Spinner** - 2-second page load animation
-- **Hidden Scrollbar** - Clean interface with hidden vertical scrollbar
-
-## 📊 Performance
-
-- Vite for fast development and optimized builds
-- Code splitting for faster initial load
-- Lazy loading for images and components
-- Minified CSS and JavaScript in production
-
-## 🔐 SEO & Meta Tags
-
-- Open Graph tags for social sharing
-- Twitter Card support
-- JSON-LD structured data
-- Sitemap and robots.txt
-- Canonical URLs
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 👤 Author
-
-**Adarsh Singh**
-- Email: adarsh042021@outlook.com
-- Phone: +91 7439473588
-- LinkedIn: linkedin.com/in/adarsh-singh-/
-- GitHub: github.com/adarsh-singhdev
 
 ---
 
-Built with ❤️ using React and Tailwind CSS
+© 2026 Adarsh Singh. All rights reserved.
