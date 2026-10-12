@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "portfolio-website",
+  "name": "adarsh",
   "compatibility_date": "2026-02-01",
   "assets": {
     "directory": "./dist",
