@@ -85,6 +85,13 @@ export default function Projects() {
               </CardHeader>
 
               <CardContent className="p-5 pt-0">
+                {project.metric && (
+                  <div className="mb-2.5">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                      ⚡ {project.metric}
+                    </span>
+                  </div>
+                )}
                 <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3 leading-relaxed">
                   {project.summary}
                 </p>
@@ -118,6 +125,12 @@ export default function Projects() {
                 <Badge variant={selectedProject.isEnterprise ? "outline" : "default"}>
                   {selectedProject.categoryLabel}
                 </Badge>
+                {selectedProject.company && (
+                  <>
+                    <span className="text-border">•</span>
+                    <span className="text-foreground/80 font-medium">{selectedProject.company}</span>
+                  </>
+                )}
               </div>
               <DialogTitle className="text-xl sm:text-2xl font-bold">
                 {selectedProject.title}
@@ -127,19 +140,75 @@ export default function Projects() {
               </DialogDescription>
             </DialogHeader>
 
-            <div className="space-y-6 pt-2">
-              <div>
-                <h4 className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">
-                  System Architecture & Implementation
-                </h4>
-                <p className="text-sm text-foreground/90 leading-relaxed bg-muted/20 p-4 rounded-xl border border-border/50">
-                  {selectedProject.detailedDescription}
-                </p>
-              </div>
+            <div className="space-y-5 pt-1">
+              {/* Measurable Result / Impact Banner */}
+              {selectedProject.result && (
+                <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs sm:text-sm text-foreground/90">
+                  <div className="font-mono text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <span>⚡ Measured Result & Impact</span>
+                  </div>
+                  <p className="leading-relaxed">{selectedProject.result}</p>
+                </div>
+              )}
 
+              {/* The Problem / Mentor Context */}
+              {selectedProject.problem && (
+                <div>
+                  <h4 className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">
+                    // Problem Context
+                  </h4>
+                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed bg-muted/20 p-3.5 rounded-xl border border-border/50">
+                    {selectedProject.problem}
+                  </p>
+                </div>
+              )}
+
+              {/* What I Built & Key Engineering Decisions */}
+              {selectedProject.highlights ? (
+                <div>
+                  <h4 className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">
+                    // What I Built & Engineering Highlights
+                  </h4>
+                  {selectedProject.whatIBuilt && (
+                    <p className="text-xs sm:text-sm text-foreground/90 mb-2.5 font-medium leading-relaxed">
+                      {selectedProject.whatIBuilt}
+                    </p>
+                  )}
+                  <ul className="space-y-2">
+                    {selectedProject.highlights.map((item, i) => (
+                      <li
+                        key={i}
+                        className="text-xs sm:text-sm text-muted-foreground leading-relaxed flex items-start gap-2 bg-muted/10 p-2.5 rounded-lg border border-border/40"
+                      >
+                        <span className="text-foreground/70 font-mono text-xs select-none shrink-0 mt-0.5">→</span>
+                        <span className="text-foreground/90">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : selectedProject.detailedDescription ? (
+                <div>
+                  <h4 className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">
+                    // System Architecture & Implementation
+                  </h4>
+                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed bg-muted/20 p-4 rounded-xl border border-border/50 whitespace-pre-line">
+                    {selectedProject.detailedDescription}
+                  </p>
+                </div>
+              ) : null}
+
+              {/* Operations & Cadence */}
+              {selectedProject.operations && (
+                <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-muted-foreground bg-muted/20 px-3 py-2 rounded-lg border border-border/40">
+                  <span className="text-foreground/80 font-semibold">How it runs / Status:</span>
+                  <span>{selectedProject.operations}</span>
+                </div>
+              )}
+
+              {/* Technologies Utilized */}
               <div>
                 <h4 className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">
-                  Technologies Utilized
+                  // Technologies Utilized
                 </h4>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedProject.techStack.map((tech) => (
