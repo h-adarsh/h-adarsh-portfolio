@@ -85,13 +85,6 @@ export default function Projects() {
               </CardHeader>
 
               <CardContent className="p-5 pt-0">
-                {project.metric && (
-                  <div className="mb-2.5">
-                    <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                      ⚡ {project.metric}
-                    </span>
-                  </div>
-                )}
                 <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3 leading-relaxed">
                   {project.summary}
                 </p>
@@ -141,13 +134,15 @@ export default function Projects() {
             </DialogHeader>
 
             <div className="space-y-5 pt-1">
-              {/* Measurable Result / Impact Banner */}
+              {/* Measurable Result / Impact */}
               {selectedProject.result && (
-                <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs sm:text-sm text-foreground/90">
-                  <div className="font-mono text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                    <span>⚡ Measured Result & Impact</span>
-                  </div>
-                  <p className="leading-relaxed">{selectedProject.result}</p>
+                <div>
+                  <h4 className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">
+                    // Measured Result & Impact
+                  </h4>
+                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed bg-muted/20 p-3.5 rounded-xl border border-border/50">
+                    {selectedProject.result}
+                  </p>
                 </div>
               )}
 
@@ -223,7 +218,7 @@ export default function Projects() {
                 <div className="p-3.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-800 dark:text-amber-300 flex items-center gap-2">
                   <Lock className="h-4 w-4 shrink-0" />
                   <span>
-                    Proprietary Enterprise Software for Titan Company Ltd. Architecture overview & demos available upon authorized inquiry.
+                    Proprietary Enterprise Software for Titan Company Ltd. Architecture overview & demos available on request.
                   </span>
                 </div>
               ) : selectedProject.github ? (
