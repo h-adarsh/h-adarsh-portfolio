@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { ArrowUpRight, Copy, Check, Download, Github, Linkedin, Award } from "lucide-react";
+import { ArrowUpRight, Copy, Check, Download, Github, Linkedin } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast";
 
@@ -18,7 +17,7 @@ export default function Hero() {
 
   return (
     <section id="about" className="pt-10 sm:pt-16 pb-12 sm:pb-16 border-b border-border/50">
-      {/* Top Profile & Live Status */}
+      {/* Top Profile */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-8">
         <div className="flex items-center gap-4">
           <div className="relative group">
@@ -27,10 +26,6 @@ export default function Hero() {
               alt={personalInfo.name}
               className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover border border-border shadow-sm group-hover:scale-105 transition-transform duration-300"
               loading="eager"
-            />
-            <span
-              className="absolute bottom-0 right-0 h-4 w-4 rounded-full bg-emerald-500 border-2 border-background ring-2 ring-emerald-500/20 animate-pulse-subtle"
-              title="Active & Available"
             />
           </div>
 
@@ -45,15 +40,6 @@ export default function Hero() {
               📍 {personalInfo.location}
             </p>
           </div>
-        </div>
-
-        {/* Live Status Pill */}
-        <div className="flex items-center">
-          <Badge variant="status" className="py-1 px-3">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping mr-1" />
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 mr-1.5" />
-            {personalInfo.status.text}
-          </Badge>
         </div>
       </div>
 
@@ -86,19 +72,6 @@ export default function Hero() {
         >
           <Download className="h-3.5 w-3.5" />
           Resume PDF
-        </Button>
-
-        <Button
-          variant="outline"
-          size="sm"
-          href={personalInfo.certificateUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="gap-1.5 font-mono text-xs h-9"
-          title="View Titan Company Ltd Internship Certificate"
-        >
-          <Award className="h-3.5 w-3.5 text-amber-500" />
-          Titan Certificate
         </Button>
 
         <Button
