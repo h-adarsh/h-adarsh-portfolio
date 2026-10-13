@@ -62,13 +62,13 @@ export default function Hero() {
       </div>
 
       {/* Action Buttons Row */}
-      <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-8">
+      <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 sm:gap-3 mb-8">
         <Button
           href={personalInfo.resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
           size="sm"
-          className="gap-2 font-mono text-xs h-9"
+          className="gap-2 font-mono text-xs h-9 w-full sm:w-auto"
         >
           <Download className="h-3.5 w-3.5" />
           Resume PDF
@@ -78,7 +78,7 @@ export default function Hero() {
           variant="outline"
           size="sm"
           onClick={handleCopyEmail}
-          className="gap-2 font-mono text-xs h-9"
+          className="gap-2 font-mono text-xs h-9 w-full sm:w-auto"
           title="Click to copy email address"
         >
           {copied ? (
@@ -95,7 +95,7 @@ export default function Hero() {
           href={personalInfo.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="gap-1.5 font-mono text-xs h-9 text-muted-foreground hover:text-foreground"
+          className="gap-1.5 font-mono text-xs h-9 text-muted-foreground hover:text-foreground w-full sm:w-auto justify-center"
         >
           <Github className="h-3.5 w-3.5" />
           GitHub
@@ -108,7 +108,7 @@ export default function Hero() {
           href={personalInfo.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="gap-1.5 font-mono text-xs h-9 text-muted-foreground hover:text-foreground"
+          className="gap-1.5 font-mono text-xs h-9 text-muted-foreground hover:text-foreground w-full sm:w-auto justify-center"
         >
           <Linkedin className="h-3.5 w-3.5" />
           LinkedIn

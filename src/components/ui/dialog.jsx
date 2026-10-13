@@ -24,7 +24,7 @@ const Dialog = ({ open, onOpenChange, children }) => {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-background/80 backdrop-blur-sm transition-opacity animate-fade-in"
@@ -43,7 +43,7 @@ const DialogContent = React.forwardRef(({ className, children, onClose, ...props
   <div
     ref={ref}
     className={cn(
-      "relative w-full rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-2xl text-card-foreground max-h-[85vh] overflow-y-auto",
+      "relative w-full rounded-2xl border border-border bg-card p-4 sm:p-6 md:p-8 shadow-2xl text-card-foreground max-h-[90vh] overflow-y-auto",
       className
     )}
     {...props}
@@ -51,7 +51,7 @@ const DialogContent = React.forwardRef(({ className, children, onClose, ...props
     {onClose && (
       <button
         onClick={onClose}
-        className="absolute right-5 top-5 rounded-md p-1.5 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+        className="absolute right-3.5 top-3.5 sm:right-5 sm:top-5 rounded-md p-1.5 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
         aria-label="Close dialog"
       >
         <X className="h-4 w-4" />
@@ -63,7 +63,7 @@ const DialogContent = React.forwardRef(({ className, children, onClose, ...props
 DialogContent.displayName = "DialogContent";
 
 const DialogHeader = ({ className, ...props }) => (
-  <div className={cn("flex flex-col space-y-2 text-left mb-6 pr-10 sm:pr-12", className)} {...props} />
+  <div className={cn("flex flex-col space-y-2 text-left mb-6 pr-8 sm:pr-12", className)} {...props} />
 );
 DialogHeader.displayName = "DialogHeader";
 

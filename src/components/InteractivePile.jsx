@@ -26,9 +26,24 @@ export default function InteractivePile() {
   const [offsets, setOffsets] = useState({});
   const [isTidying, setIsTidying] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
+  const [containerWidth, setContainerWidth] = useState(600);
 
   const containerRef = useRef(null);
   const dragRef = useRef({ id: null, startX: 0, startY: 0, origX: 0, origY: 0 });
+
+  // Measure container width for responsive item placement
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const updateSize = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.clientWidth);
+      }
+    };
+    updateSize();
+    const ro = new ResizeObserver(updateSize);
+    ro.observe(containerRef.current);
+    return () => ro.disconnect();
+  }, []);
 
   // 1. Live Kolkata Time & Dynamic Greeting
   useEffect(() => {
@@ -179,7 +194,7 @@ export default function InteractivePile() {
 
         {/* Character Illustration Seated on the Right */}
         <div
-          className="absolute right-0 bottom-0 pointer-events-none select-none z-10 w-[180px] sm:w-[230px]"
+          className="absolute right-0 bottom-0 pointer-events-none select-none z-10 w-[140px] sm:w-[230px]"
           title="sitting behind the pile, looking thoughtfully"
         >
           {/* Light Mode Drawing */}
@@ -205,7 +220,9 @@ export default function InteractivePile() {
             const offset = offsets[item.id] || { x: 0, y: 0 };
             const isHeld = activeItem === item.id;
 
-            const currentX = layout.x + offset.x;
+            // Scale desk items dynamically on smaller mobile viewports
+            const pileScale = containerWidth < 600 ? Math.max(0.55, Math.min(1, (containerWidth - 140) / 360)) : 1;
+            const currentX = (layout.x * pileScale) + offset.x;
             const currentY = layout.y + offset.y;
             const rotate = isHeld ? layout.rotate + 4 : layout.rotate;
 
@@ -241,9 +258,13 @@ export default function InteractivePile() {
       {/* 4. Bottom Colophon with Dotted Line & Live Kolkata Clock */}
       <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-muted-foreground border-t border-dotted border-border/80">
         <div className="space-y-1">
-          <p>
-            &copy; {new Date().getFullYear()} adarsh singh &middot; kolkata{" "}
-            <span className="text-foreground font-semibold">{kolkataTime}</span> &middot;{" "}
+          <p className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+            <span>&copy; {new Date().getFullYear()} adarsh singh</span>
+            <span>&middot;</span>
+            <span>
+              kolkata <span className="text-foreground font-semibold">{kolkataTime}</span>
+            </span>
+            <span>&middot;</span>
             <a
               href="https://github.com/h-adarsh"
               target="_blank"
@@ -251,8 +272,8 @@ export default function InteractivePile() {
               className="hover:text-foreground underline underline-offset-2 decoration-border"
             >
               github
-            </a>{" "}
-            &middot;{" "}
+            </a>
+            <span>&middot;</span>
             <a
               href="/adarsh_cv.pdf"
               target="_blank"

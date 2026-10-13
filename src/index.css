@@ -111,3 +111,13 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+/* Hide scrollbar for clean horizontal overflow scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

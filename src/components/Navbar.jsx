@@ -54,47 +54,49 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-background/85 border-b border-border/50 transition-colors">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-3 sm:gap-6">
         {/* Brand logo */}
         <a
           href="#about"
-          className="font-mono text-sm sm:text-base font-semibold tracking-tight text-foreground hover:opacity-70 transition-opacity flex items-center"
+          className="font-mono text-sm sm:text-base font-semibold tracking-tight text-foreground hover:opacity-70 transition-opacity flex items-center shrink-0 mr-2 sm:mr-4"
           aria-label="Back to top"
         >
           <span className="text-muted-foreground">/</span>
           <span>{personalInfo.monogram.replace(/^\//, "")}</span>
         </a>
 
-        {/* Navigation Links */}
-        <nav className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium">
-          {[
-            { id: "about", label: "about" },
-            { id: "work", label: "work" },
-            { id: "projects", label: "projects" },
-            { id: "kit", label: "kit" },
-            { id: "notes", label: "notes" },
-            { id: "contact", label: "contact" },
-          ].map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={`px-2 py-1 rounded-md transition-colors ${
-                activeSection === item.id
-                  ? "text-foreground font-semibold bg-secondary/80"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"
-              }`}
-            >
-              {item.label}
-            </a>
-          ))}
+        {/* Navigation Links & Theme Toggle */}
+        <div className="flex items-center gap-1 sm:gap-2 min-w-0 justify-end">
+          <nav className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium overflow-x-auto no-scrollbar py-1">
+            {[
+              { id: "about", label: "about" },
+              { id: "work", label: "work" },
+              { id: "projects", label: "projects" },
+              { id: "kit", label: "kit" },
+              { id: "notes", label: "notes" },
+              { id: "contact", label: "contact" },
+            ].map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className={`px-2 py-1 rounded-md transition-colors whitespace-nowrap shrink-0 ${
+                  activeSection === item.id
+                    ? "text-foreground font-semibold bg-secondary/80"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
 
-          <span className="w-px h-4 bg-border mx-1" aria-hidden="true" />
+          <span className="w-px h-4 bg-border mx-1 shrink-0" aria-hidden="true" />
 
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
             type="button"
-            className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors border border-transparent hover:border-border"
+            className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors border border-transparent hover:border-border shrink-0"
             aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
             title={isDark ? "Switch to light mode" : "Switch to dark mode"}
           >
@@ -104,7 +106,7 @@ export default function Navbar() {
               <Moon className="h-4 w-4 transition-transform rotate-0 hover:-rotate-12" />
             )}
           </button>
-        </nav>
+        </div>
       </div>
     </header>
   );

@@ -29,8 +29,8 @@ export default function Projects() {
         </div>
 
         {/* shadcn Tabs filter */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-auto">
-          <TabsList>
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-auto max-w-full">
+          <TabsList className="max-w-full overflow-x-auto no-scrollbar">
             <TabsTrigger value="all">all ({projects.length})</TabsTrigger>
             <TabsTrigger value="enterprise">enterprise</TabsTrigger>
             <TabsTrigger value="opensource">open source</TabsTrigger>
