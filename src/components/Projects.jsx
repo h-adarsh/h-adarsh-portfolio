@@ -195,7 +195,9 @@ export default function Projects() {
               {/* Operations & Cadence */}
               {selectedProject.operations && (
                 <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-muted-foreground bg-muted/20 px-3 py-2 rounded-lg border border-border/40">
-                  <span className="text-foreground/80 font-semibold">How it runs / Status:</span>
+                  <span className="text-foreground/80 font-semibold">
+                    {selectedProject.operationsLabel || "Usage / Status:"}
+                  </span>
                   <span>{selectedProject.operations}</span>
                 </div>
               )}
