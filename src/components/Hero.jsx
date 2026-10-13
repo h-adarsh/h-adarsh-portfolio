@@ -46,18 +46,10 @@ export default function Hero() {
       {/* Main Narrative */}
       <div className="space-y-4 text-base sm:text-lg text-foreground/90 leading-relaxed font-sans mb-8">
         <p>
-          I bridge application security and full-stack software engineering. Recently completed a 7-month internship (12 Jan – 10 Aug 2026) at{" "}
-          <span className="font-medium text-foreground underline decoration-border decoration-1 underline-offset-4">
-            Titan Company Limited
-          </span>
-          , where I built headless browser automations (170+ WAF domains), vulnerability diffing dashboards for 300K+ records, and internal LLM gateways.
+          Hi, I&apos;m Adarsh. I build software that connects application security, robust backend infrastructure, and modern AI. I&apos;m drawn to first-principles thinking, clean abstractions, and systems that hold up reliably under pressure.
         </p>
         <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-          Currently engineering autonomous AI assistants with human-in-the-loop verification, container sandboxing, and defense-in-depth isolation pipelines with{" "}
-          <span className="font-mono text-xs bg-muted/60 px-1.5 py-0.5 rounded text-foreground">TypeScript</span>,{" "}
-          <span className="font-mono text-xs bg-muted/60 px-1.5 py-0.5 rounded text-foreground">Node.js / Bun</span>,{" "}
-          <span className="font-mono text-xs bg-muted/60 px-1.5 py-0.5 rounded text-foreground">Vercel AI SDK</span>, and{" "}
-          <span className="font-mono text-xs bg-muted/60 px-1.5 py-0.5 rounded text-foreground">Docker</span>.
+          To counterbalance the intensity of screen time, I&apos;m an avid runner and committed to physical fitness. Whether it&apos;s pushing through an early morning run or lifting, staying physically challenged fuels the clarity, discipline, and endurance I bring back to the craft of engineering.
         </p>
       </div>
 

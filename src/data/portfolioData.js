@@ -10,8 +10,8 @@ export const personalInfo = {
     dotColor: "bg-emerald-500",
   },
   bio: [
-    "I'm a software engineer specializing in AI systems and application security. Completed a 7-month internship at Titan Company Limited (12 Jan 2026 – 10 Aug 2026), engineering browser RPA tooling, vulnerability intelligence engines, and internal LLM gateways.",
-    "Currently building autonomous AI agents with human-in-the-loop verification, sandbox container isolation, and defense-in-depth security pipelines.",
+    "Hi, I'm Adarsh. I build software that connects application security, robust backend infrastructure, and modern AI. I'm drawn to first-principles thinking, clean abstractions, and systems that hold up reliably under pressure.",
+    "To counterbalance the intensity of screen time, I'm an avid runner and committed to physical fitness. Whether it's pushing through an early morning run or lifting, staying physically challenged fuels the clarity, discipline, and endurance I bring back to the craft of engineering.",
   ],
   quote: {
     text: "Security is always excessive until it's not enough.",
