@@ -101,17 +101,6 @@ export default function Contact() {
             Resume
             <ArrowUpRight className="h-3 w-3 opacity-60" />
           </a>
-
-          <a
-            href={personalInfo.certificateUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/60 hover:border-foreground/40 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <span className="text-amber-500">📜</span>
-            Titan Certificate
-            <ArrowUpRight className="h-3 w-3 opacity-60" />
-          </a>
         </div>
       </div>
 
