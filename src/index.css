@@ -76,9 +76,60 @@
   * {
     @apply border-border;
   }
+  html,
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* 1. View Transitions API - Modern Circular Radial Reveal */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+/* 2. Global Smooth CSS Color & Border Fallback */
+body,
+header,
+footer,
+nav,
+[class*="bg-card"],
+[class*="border"] {
+  transition: background-color 350ms ease, border-color 300ms ease;
+}
+
+/* Suppress CSS transitions temporarily while capturing snapshot for View Transition */
+html.view-transition-active *,
+html.view-transition-active *::before,
+html.view-transition-active *::after {
+  transition: none !important;
+}
+
+/* 3. Accessibility: Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+
+  body,
+  header,
+  footer,
+  nav,
+  [class*="bg-card"],
+  [class*="border"] {
+    transition: none !important;
   }
 }
 

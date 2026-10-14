@@ -1,36 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Moon, Sun } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 import { personalInfo } from "@/data/portfolioData";
 
 export default function Navbar() {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return (
-      localStorage.getItem("theme") === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    );
-  });
-
   const [activeSection, setActiveSection] = useState("about");
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => {
-    const newDark = !isDark;
-    setIsDark(newDark);
-    if (newDark) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
-    }
-  };
 
   useEffect(() => {
     const sections = ["about", "work", "projects", "kit", "notes", "contact"];
@@ -93,20 +66,9 @@ export default function Navbar() {
           <span className="w-px h-4 bg-border mx-1 shrink-0" aria-hidden="true" />
 
           {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            type="button"
-            className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors border border-transparent hover:border-border shrink-0"
-            aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-            title={isDark ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            {isDark ? (
-              <Sun className="h-4 w-4 transition-transform rotate-0 hover:rotate-45" />
-            ) : (
-              <Moon className="h-4 w-4 transition-transform rotate-0 hover:-rotate-12" />
-            )}
-          </button>
+          <ThemeToggle />
         </div>
+
       </div>
     </header>
   );

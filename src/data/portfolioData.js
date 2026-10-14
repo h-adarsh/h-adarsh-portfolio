@@ -81,7 +81,7 @@ export const projects = [
     title: "VAPT Assessment Portal",
     category: "enterprise",
     categoryLabel: "Enterprise Security",
-    date: "Mar 2026",
+    date: "May 2026",
     company: "Titan Company Ltd.",
     summary: "Full-stack report portal built with AI assistance, cutting vulnerability report creation from 3–4 hours to 30–60 minutes per report.",
     problem: "VAPT reports were written by hand in Word. Each finding needed a score, a weakness ID, impact and fix notes, and the format varied from person to person.",
