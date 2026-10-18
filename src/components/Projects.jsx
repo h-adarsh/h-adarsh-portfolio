@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowUpRight, Github, Lock } from "lucide-react";
+import { ArrowUpRight, Github, Lock, Globe, Sparkles } from "lucide-react";
 import { projects } from "@/data/portfolioData";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
@@ -24,7 +24,7 @@ export default function Projects() {
             Featured Projects
           </h2>
           <p className="text-xs sm:text-sm font-mono text-muted-foreground mt-1">
-            // enterprise tooling, browser automation & open-source builds
+            // enterprise tooling, autonomous AI systems & open-source builds
           </p>
         </div>
 
@@ -58,7 +58,24 @@ export default function Projects() {
               <CardHeader className="p-5 pb-3">
                 <div className="flex items-center justify-between text-xs font-mono text-muted-foreground mb-2">
                   <span>{project.date}</span>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-2">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 hover:underline px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 transition-colors"
+                        title="Open live web application"
+                      >
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                        </span>
+                        <span>Live Demo</span>
+                        <ArrowUpRight className="h-2.5 w-2.5" />
+                      </a>
+                    )}
                     {project.isEnterprise ? (
                       <span className="inline-flex items-center gap-1 text-[11px] text-muted-foreground/90">
                         <Lock className="h-3 w-3" />
@@ -74,14 +91,31 @@ export default function Projects() {
                 </div>
 
                 <div className="flex items-start justify-between gap-2">
-                  <CardTitle className="text-base font-semibold group-hover:text-foreground transition-colors">
-                    {project.title}
-                  </CardTitle>
-                  <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground shrink-0" />
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    {project.icon && (
+                      <img
+                        src={project.icon}
+                        alt=""
+                        className="h-6 w-6 rounded-md shrink-0 shadow-xs border border-border/70"
+                      />
+                    )}
+                    <CardTitle className="text-base font-semibold group-hover:text-foreground transition-colors truncate sm:whitespace-normal">
+                      {project.title}
+                    </CardTitle>
+                  </div>
+                  <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground shrink-0 mt-0.5" />
                 </div>
-                <CardDescription className="text-xs font-mono text-muted-foreground mt-0.5">
-                  {project.categoryLabel}
-                </CardDescription>
+                <div className="flex flex-wrap items-center gap-2 mt-1">
+                  <CardDescription className="text-xs font-mono text-muted-foreground">
+                    {project.categoryLabel}
+                  </CardDescription>
+                  {project.withAiAssistance && (
+                    <span className="inline-flex items-center gap-1 text-[10px] font-mono px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                      <Sparkles className="h-2.5 w-2.5" />
+                      AI-Assisted
+                    </span>
+                  )}
+                </div>
               </CardHeader>
 
               <CardContent className="p-5 pt-0">
@@ -118,6 +152,12 @@ export default function Projects() {
                 <Badge variant={selectedProject.isEnterprise ? "outline" : "default"}>
                   {selectedProject.categoryLabel}
                 </Badge>
+                {selectedProject.withAiAssistance && (
+                  <Badge variant="outline" className="border-purple-500/30 text-purple-600 dark:text-purple-400 bg-purple-500/10 gap-1">
+                    <Sparkles className="h-3 w-3" />
+                    AI-Assisted
+                  </Badge>
+                )}
                 {selectedProject.company && (
                   <>
                     <span className="text-border">•</span>
@@ -125,9 +165,18 @@ export default function Projects() {
                   </>
                 )}
               </div>
-              <DialogTitle className="text-xl sm:text-2xl font-bold">
-                {selectedProject.title}
-              </DialogTitle>
+              <div className="flex items-center gap-3">
+                {selectedProject.icon && (
+                  <img
+                    src={selectedProject.icon}
+                    alt=""
+                    className="h-8 w-8 rounded-lg shrink-0 shadow-xs border border-border/70"
+                  />
+                )}
+                <DialogTitle className="text-xl sm:text-2xl font-bold">
+                  {selectedProject.title}
+                </DialogTitle>
+              </div>
               <DialogDescription className="text-sm pt-1">
                 {selectedProject.summary}
               </DialogDescription>
@@ -223,21 +272,37 @@ export default function Projects() {
                     Proprietary Enterprise Software for Titan Company Ltd. Architecture overview & demos available on request.
                   </span>
                 </div>
-              ) : selectedProject.github ? (
-                <div className="pt-2 flex gap-3">
-                  <Button
-                    href={selectedProject.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    size="sm"
-                    className="gap-2 font-mono text-xs"
-                  >
-                    <Github className="h-4 w-4" />
-                    View Repository
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </Button>
+              ) : (
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  {selectedProject.liveUrl && (
+                    <Button
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      size="sm"
+                      className="gap-2 font-mono text-xs bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm"
+                    >
+                      <Globe className="h-4 w-4" />
+                      Launch Live Demo
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </Button>
+                  )}
+                  {selectedProject.github && (
+                    <Button
+                      href={selectedProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="outline"
+                      size="sm"
+                      className="gap-2 font-mono text-xs"
+                    >
+                      <Github className="h-4 w-4" />
+                      View Repository
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </Button>
+                  )}
                 </div>
-              ) : null}
+              )}
             </div>
           </DialogContent>
         )}

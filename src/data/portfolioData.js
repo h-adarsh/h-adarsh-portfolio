@@ -57,6 +57,33 @@ export const experiences = [
 
 export const projects = [
   {
+    id: "youtube-roast",
+    title: "YouTube Roast — AI Attention Span & Dopamine Teardown",
+    category: "opensource",
+    categoryLabel: "AI Engineering & Security",
+    date: "Oct 2026",
+    summary: "Production AI web application analyzing real YouTube watch habits, sub-60s Shorts dopamine traps, and subscriptions to deterministically calculate a Brainrot Score (0–100) and generate fact-grounded roasts with Google Gemini 2.5 Flash.",
+    problem: "Unchecked short-form media consumption erodes attention spans without measurable accountability, while users often distrust third-party AI tools with their personal Google accounts due to persistent data storage or token leakage risks.",
+    whatIBuilt: "A privacy-hardened, fact-grounded AI roasting engine built with AI assistance, pairing Google OAuth 2.0 (PKCE) and ephemeral AES-256-GCM token storage with deterministic scoring and bilingual Gemini 2.5 Flash humor models in a custom Karl Storybook Diorama design aesthetic.",
+    highlights: [
+      "Engineered a privacy-first Google OAuth 2.0 (PKCE) auth flow with minimal read-only scope, AES-256-GCM cookie encryption, and immediate Google token revocation within 5 seconds of ingest with zero persistent video storage.",
+      "Designed a deterministic mathematical Brainrot scoring algorithm (0–100) factoring Shorts (<60s) ratios, educational vs. entertainment distributions, and binge concentration—eliminating LLM hallucination in quantitative scoring.",
+      "Architected defense-in-depth prompt sanitization to neutralize prompt injection attacks from untrusted external YouTube video titles and playlist names before passing to the AI model.",
+      "Implemented dual humor engines: contemporary internet English slang and authentic colloquial Hinglish (Desi Mode) with 3 adjustable severity tiers (Mild, Savage, Nuclear) validated against strict Zod schemas.",
+      "Developed interactive Friend Duel mode (/duel), Dopamine Prescription Rx clinical diagnosis, client-side canvas share card exports (html-to-image), and Ghost Mode fallback for private YouTube accounts.",
+    ],
+    result: "100% deterministic reproducibility with sub-second scoring, zero database video footprint, and instant Google token revocation upon ingest.",
+    operationsLabel: "Live Deployment:",
+    operations: "Production on Vercel • Gemini 2.5 Flash • Google OAuth PKCE",
+    techStack: ["Next.js 16", "TypeScript", "Google Gemini 2.5", "YouTube Data API v3", "Tailwind CSS", "OAuth 2.0 (PKCE)", "AES-256-GCM", "Zod", "Canvas API"],
+    github: "https://github.com/h-adarsh/youtube-roast",
+    liveUrl: "https://youtuberoast.vercel.app/",
+    icon: "/youtube-roast-icon.svg",
+    withAiAssistance: true,
+    isEnterprise: false,
+    featured: true,
+  },
+  {
     id: "adarshclaw",
     title: "Adarshclaw — Human-in-the-loop AI Assistant",
     category: "opensource",
@@ -278,19 +305,19 @@ export const certifications = [
 export const techKit = [
   {
     category: "Core Languages",
-    items: ["C/C++", "TypeScript", "JavaScript", "Python", "Java", "SQL"],
+    items: ["TypeScript", "JavaScript", "Python", "C/C++", "Java", "SQL"],
   },
   {
     category: "Frameworks & AI",
-    items: ["React", "Vercel AI SDK", "Node.js", "Express.js", "Bun", "FastAPI", "Tailwind CSS"],
+    items: ["Next.js 16", "React 19", "Google Gemini 2.5", "Vercel AI SDK", "Node.js", "Express.js", "Bun", "Tailwind CSS"],
   },
   {
     category: "Security & Operations",
-    items: ["AppSec & VAPT", "Human-in-the-loop AI", "WAF RPA", "CVSS/CWSS", "Docker Sandboxing", "SSRF Hardening"],
+    items: ["OAuth 2.0 (PKCE)", "AES-256-GCM", "Prompt Injection Defense", "AppSec & VAPT", "Human-in-the-loop AI", "Docker Sandboxing", "SSRF Hardening", "WAF RPA"],
   },
   {
     category: "Databases & Cloud",
-    items: ["PostgreSQL", "MySQL", "SQLite (D1)", "Prisma ORM", "BullMQ", "Docker", "Cloudflare Workers", "Linux"],
+    items: ["Vercel", "Cloudflare Workers", "Cloudflare D1", "PostgreSQL", "MySQL", "Prisma ORM", "Docker", "Linux"],
   },
 ];
 

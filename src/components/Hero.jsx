@@ -39,6 +39,15 @@ export default function Hero() {
             <p className="text-xs text-muted-foreground/80 mt-0.5">
               📍 {personalInfo.location}
             </p>
+            {personalInfo.status && (
+              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-700 dark:text-emerald-400 mt-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>{personalInfo.status.text}</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
