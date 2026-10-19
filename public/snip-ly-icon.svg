@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Snip.ly Royal Blue Canvas -->
+  <rect x="1.5" y="1.5" width="29" height="29" rx="7" fill="#2563EB" stroke="#0F172A" stroke-width="2"/>
+  
+  <!-- Scissor Handles & Blades in White -->
+  <circle cx="10" cy="21.8" r="4.2" stroke="#FFFFFF" stroke-width="2.6" fill="none"/>
+  <circle cx="10" cy="10.2" r="4.2" stroke="#FFFFFF" stroke-width="2.6" fill="none"/>
+  <path d="M12.8 12.6 L25.2 22" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M12.8 19.4 L25.2 10" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
+
+  <!-- Center Pivot Rivet in Dark Slate with White Border -->
+  <circle cx="16.2" cy="16" r="1.5" fill="#0F172A" stroke="#FFFFFF" stroke-width="0.8"/>
+</svg>

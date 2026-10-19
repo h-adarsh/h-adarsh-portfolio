@@ -246,6 +246,7 @@ export const projects = [
     techStack: ["React 19", "Vite", "Cloudflare Workers", "Cloudflare D1 (SQL)", "Tailwind CSS", "TypeScript", "REST API"],
     github: "https://github.com/h-adarsh/snip.ly",
     liveUrl: "https://snip-ly.pages.dev/",
+    icon: "/snip-ly-icon.svg",
     operationsLabel: "Live Deployment:",
     operations: "Production on Cloudflare Pages & Workers • D1 SQL",
     isEnterprise: false,
