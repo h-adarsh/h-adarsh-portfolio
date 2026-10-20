@@ -91,15 +91,15 @@ export default function Projects() {
                 </div>
 
                 <div className="flex items-start justify-between gap-2">
-                  <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="flex items-start gap-2.5 min-w-0">
                     {project.icon && (
                       <img
                         src={project.icon}
                         alt=""
-                        className="h-6 w-6 rounded-md shrink-0 shadow-xs border border-border/70"
+                        className="h-6 w-6 rounded-md shrink-0 shadow-xs border border-border/70 mt-0.5"
                       />
                     )}
-                    <CardTitle className="text-base font-semibold group-hover:text-foreground transition-colors truncate sm:whitespace-normal">
+                    <CardTitle className="text-base font-semibold group-hover:text-foreground transition-colors leading-snug">
                       {project.title}
                     </CardTitle>
                   </div>
@@ -180,6 +180,37 @@ export default function Projects() {
               <DialogDescription className="text-sm pt-1">
                 {selectedProject.summary}
               </DialogDescription>
+              {!selectedProject.isEnterprise && (selectedProject.liveUrl || selectedProject.github) && (
+                <div className="pt-2 flex flex-wrap items-center gap-2">
+                  {selectedProject.liveUrl && (
+                    <Button
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      size="sm"
+                      className="gap-1.5 font-mono text-xs bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs h-8 px-3"
+                    >
+                      <Globe className="h-3.5 w-3.5" />
+                      Live Demo
+                      <ArrowUpRight className="h-3 w-3" />
+                    </Button>
+                  )}
+                  {selectedProject.github && (
+                    <Button
+                      href={selectedProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="outline"
+                      size="sm"
+                      className="gap-1.5 font-mono text-xs h-8 px-3"
+                    >
+                      <Github className="h-3.5 w-3.5" />
+                      View Code
+                      <ArrowUpRight className="h-3 w-3" />
+                    </Button>
+                  )}
+                </div>
+              )}
             </DialogHeader>
 
             <div className="space-y-5 pt-1">

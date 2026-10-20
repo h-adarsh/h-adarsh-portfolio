@@ -43,7 +43,7 @@ const DialogContent = React.forwardRef(({ className, children, onClose, ...props
   <div
     ref={ref}
     className={cn(
-      "relative w-full rounded-2xl border border-border bg-card p-4 sm:p-6 md:p-8 shadow-2xl text-card-foreground max-h-[90vh] overflow-y-auto",
+      "relative w-full rounded-2xl border border-border bg-card p-4 sm:p-6 md:p-8 shadow-2xl text-card-foreground max-h-[calc(100dvh-2.5rem)] sm:max-h-[85vh] overflow-y-auto overscroll-contain",
       className
     )}
     {...props}
