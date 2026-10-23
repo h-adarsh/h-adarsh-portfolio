@@ -1,13 +1,14 @@
 import React from "react";
 import { techKit, certifications } from "@/data/portfolioData";
-import { Award, ExternalLink } from "lucide-react";
+import { Award, ExternalLink, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Kit() {
   return (
     <section id="kit" className="py-12 sm:py-16 border-b border-border/50">
       <div className="mb-8">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans">
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans flex items-center gap-2.5">
+          <Wrench className="h-6 w-6 text-foreground/80" />
           The Kit & Arsenal
         </h2>
         <p className="text-xs sm:text-sm font-mono text-muted-foreground mt-1">

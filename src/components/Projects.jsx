@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowUpRight, Github, Lock, Globe, Sparkles } from "lucide-react";
+import { ArrowUpRight, Github, Lock, Globe, Sparkles, FolderGit2 } from "lucide-react";
 import { projects } from "@/data/portfolioData";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
@@ -20,7 +20,8 @@ export default function Projects() {
     <section id="projects" className="py-12 sm:py-16 border-b border-border/50">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans flex items-center gap-2.5">
+            <FolderGit2 className="h-6 w-6 text-foreground/80" />
             Featured Projects
           </h2>
           <p className="text-xs sm:text-sm font-mono text-muted-foreground mt-1">

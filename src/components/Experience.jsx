@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Calendar, MapPin, Award, CheckCircle2, Download, ExternalLink } from "lucide-react";
+import { Calendar, MapPin, Award, CheckCircle2, Download, ExternalLink, Briefcase } from "lucide-react";
 import { experiences } from "@/data/portfolioData";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -12,7 +12,8 @@ export default function Experience() {
     <section id="work" className="py-12 sm:py-16 border-b border-border/50">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans flex items-center gap-2.5">
+            <Briefcase className="h-6 w-6 text-foreground/80" />
             Work Experience
           </h2>
           <p className="text-xs sm:text-sm font-mono text-muted-foreground mt-1">

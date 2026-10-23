@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, PenLine } from "lucide-react";
 import { writings } from "@/data/portfolioData";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
@@ -9,7 +9,8 @@ export default function Notes() {
   return (
     <section id="notes" className="py-12 sm:py-16 border-b border-border/50">
       <div className="mb-8">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans">
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans flex items-center gap-2.5">
+          <PenLine className="h-6 w-6 text-foreground/80" />
           Technical Notes & Writing
         </h2>
         <p className="text-xs sm:text-sm font-mono text-muted-foreground mt-1">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Copy, Check, ArrowUpRight, Github, Linkedin, Phone, FileText } from "lucide-react";
+import { Copy, Check, ArrowUpRight, Github, Linkedin, Phone, FileText, Mail } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
 import { useToast } from "@/components/ui/toast";
 import InteractivePile from "@/components/InteractivePile";
@@ -18,7 +18,8 @@ export default function Contact() {
   return (
     <section id="contact" className="py-12 sm:py-20">
       <div className="mb-8">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans">
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans flex items-center gap-2.5">
+          <Mail className="h-6 w-6 text-foreground/80" />
           Get in Touch
         </h2>
         <p className="text-xs sm:text-sm font-mono text-muted-foreground mt-1">
