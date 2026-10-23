@@ -6,7 +6,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
-    const sections = ["about", "work", "projects", "kit", "notes", "contact"];
+    const sections = ["about", "work", "projects", "kit", "notes", "education", "contact"];
     const handleScroll = () => {
       const scrollPos = window.scrollY + 140;
       for (const section of sections) {
@@ -47,6 +47,7 @@ export default function Navbar() {
               { id: "projects", label: "projects" },
               { id: "kit", label: "kit" },
               { id: "notes", label: "notes" },
+              { id: "education", label: "education" },
               { id: "contact", label: "contact" },
             ].map((item) => (
               <a

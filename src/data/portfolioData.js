@@ -55,6 +55,53 @@ export const experiences = [
   },
 ];
 
+export const education = [
+  {
+    institution: "Lovely Professional University",
+    location: "Phagwara, Punjab",
+    degree: "Bachelor of Technology",
+    field: "Computer Science and Engineering",
+    period: "2022 – 2026",
+    year: "2026",
+    status: "Completed",
+    badge: "Completed",
+    scoreType: "CGPA",
+    score: "7.27",
+    scoreDisplay: "CGPA: 7.27",
+    highlights: [
+      "Coursework includes Data Structures & Algorithms, Operating Systems, Computer Networks, Database Management Systems, and Application Security.",
+    ],
+  },
+  {
+    institution: "HM Education Centre, Hindmotor Campus",
+    location: "Hooghly, West Bengal",
+    degree: "Senior Secondary (Class XII)",
+    field: "CBSE (AISSCE)",
+    period: "2022",
+    year: "2022",
+    status: "Completed",
+    badge: "Completed",
+    scoreType: "Percentage",
+    score: "65.2%",
+    scoreDisplay: "Percentage: 65.2%",
+    highlights: [],
+  },
+  {
+    institution: "HM Education Centre, Hindmotor Campus",
+    location: "Hooghly, West Bengal",
+    degree: "Secondary School (Class X)",
+    field: "CBSE (AISSE)",
+    period: "2020",
+    year: "2020",
+    status: "Completed",
+    badge: "Completed",
+    scoreType: "Percentage",
+    score: "81.4%",
+    scoreDisplay: "Percentage: 81.4%",
+    highlights: [],
+  },
+];
+
 export const projects = [
   {
     id: "youtube-roast",

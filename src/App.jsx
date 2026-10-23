@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Experience from "@/components/Experience";
+import Education from "@/components/Education";
 import Projects from "@/components/Projects";
 import Kit from "@/components/Kit";
 import Notes from "@/components/Notes";
@@ -22,6 +23,7 @@ export default function App() {
           <Projects />
           <Kit />
           <Notes />
+          <Education />
           <Contact />
         </main>
       </div>

@@ -1,0 +1,96 @@
+import { GraduationCap, Calendar, MapPin, Award, BookOpen, CheckCircle2 } from "lucide-react";
+import { education } from "@/data/portfolioData";
+import { Badge } from "@/components/ui/badge";
+
+export default function Education() {
+  return (
+    <section id="education" className="py-12 sm:py-16 border-b border-border/50">
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-sans flex items-center gap-2.5">
+            <GraduationCap className="h-6 w-6 text-foreground/80" />
+            Education
+          </h2>
+          <p className="text-xs sm:text-sm font-mono text-muted-foreground mt-1">
+            // academic background, engineering degree & schooling
+          </p>
+        </div>
+      </div>
+
+      <div className="space-y-8">
+        {education.map((edu, idx) => (
+          <div
+            key={edu.institution + edu.field + idx}
+            className="relative pl-6 sm:pl-8 before:absolute before:left-2 before:top-2.5 before:bottom-0 before:w-px before:bg-border/80 group"
+          >
+            {/* Timeline node */}
+            <span className="absolute left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-background bg-foreground transition-transform group-hover:scale-125" />
+
+            <div className="rounded-xl border border-border/80 bg-card p-5 sm:p-6 transition-all duration-200 hover:border-foreground/30 shadow-sm">
+              {/* Header row */}
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-base sm:text-lg font-semibold text-foreground">
+                      {edu.degree}
+                      {edu.field && edu.field !== edu.degree && (
+                        <span className="text-muted-foreground font-normal">
+                          {" "}— {edu.field}
+                        </span>
+                      )}
+                    </h3>
+
+                    {edu.status === "Completed" ? (
+                      <Badge variant="status" className="py-0 px-2 text-[10px]">
+                        <CheckCircle2 className="h-3 w-3 mr-1" />
+                        Completed
+                      </Badge>
+                    ) : (
+                      <Badge variant="mono" className="py-0 px-2 text-[10px]">
+                        {edu.badge || "Completed"}
+                      </Badge>
+                    )}
+                  </div>
+
+                  <p className="text-sm font-medium text-foreground/90 mt-1">
+                    {edu.institution}
+                  </p>
+                </div>
+
+                {/* Duration & Location */}
+                <div className="flex flex-col sm:items-end gap-1.5 text-xs font-mono text-muted-foreground shrink-0">
+                  <div className="flex items-center gap-1.5">
+                    <Calendar className="h-3 w-3" />
+                    <span>{edu.period || edu.year}</span>
+                  </div>
+
+                  <div className="flex items-center gap-1.5">
+                    <MapPin className="h-3 w-3" />
+                    <span>{edu.location}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Score / Grade Pill & Highlights */}
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary/80 border border-border/70 text-xs font-mono text-foreground">
+                  <Award className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                  <span className="font-semibold">{edu.scoreDisplay}</span>
+                </div>
+
+                {edu.highlights && edu.highlights.length > 0 && (
+                  <div className="w-full mt-3 p-3.5 rounded-lg bg-muted/20 border border-border/40 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    <div className="flex items-start gap-2">
+                      <BookOpen className="h-3.5 w-3.5 text-foreground/70 shrink-0 mt-0.5" />
+                      <span>{edu.highlights[0]}</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
