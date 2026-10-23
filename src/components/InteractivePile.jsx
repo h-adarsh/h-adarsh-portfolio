@@ -264,24 +264,6 @@ export default function InteractivePile() {
             <span>
               kolkata <span className="text-foreground font-semibold">{kolkataTime}</span>
             </span>
-            <span>&middot;</span>
-            <a
-              href="https://github.com/h-adarsh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-foreground underline underline-offset-2 decoration-border"
-            >
-              github
-            </a>
-            <span>&middot;</span>
-            <a
-              href="/adarsh_cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-foreground underline underline-offset-2 decoration-border"
-            >
-              resume
-            </a>
           </p>
           <p className="text-[11px] text-muted-foreground/80">
             psst, this is an ai &amp; security engineer&apos;s site. press{" "}
