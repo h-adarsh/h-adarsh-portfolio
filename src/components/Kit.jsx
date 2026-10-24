@@ -57,21 +57,21 @@ export default function Kit() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/20 flex items-start justify-between gap-2 group hover:border-emerald-500/40 hover:bg-emerald-500/10 transition-all",
+                "p-3.5 rounded-lg bg-card/60 border border-border/70 flex items-start justify-between gap-3 group hover:border-foreground/30 hover:bg-muted/30 transition-all duration-200",
                 cert.fullWidth && "sm:col-span-2"
               )}
             >
-              <div>
-                <p className="text-xs sm:text-sm font-medium text-foreground group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors flex items-center gap-1.5">
-                  <span>{cert.title}</span>
-                  <ExternalLink className="h-3 w-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
-                </p>
-                <p className="text-[11px] font-mono text-muted-foreground mt-0.5">
+              <div className="min-w-0 flex-1">
+                <div className="text-xs sm:text-sm font-medium text-foreground leading-snug">
+                  <span>{cert.title}</span>{" "}
+                  <ExternalLink className="inline-block h-3 w-3 align-[-1px] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" />
+                </div>
+                <p className="text-[11px] font-mono text-muted-foreground mt-1">
                   {cert.issuer} • {cert.date}
                 </p>
               </div>
 
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shrink-0">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shrink-0 font-medium">
                 {cert.badge}
               </span>
             </a>

@@ -221,10 +221,11 @@ export default function InteractivePile() {
             const isHeld = activeItem === item.id;
 
             // Scale desk items dynamically on smaller mobile viewports
-            const pileScale = containerWidth < 600 ? Math.max(0.55, Math.min(1, (containerWidth - 140) / 360)) : 1;
+            const pileScale = containerWidth < 600 ? Math.max(0.6, Math.min(1, (containerWidth - 110) / 400)) : 1;
             const currentX = (layout.x * pileScale) + offset.x;
-            const currentY = layout.y + offset.y;
+            const currentY = (layout.y * pileScale) + offset.y;
             const rotate = isHeld ? layout.rotate + 4 : layout.rotate;
+            const itemScale = (isHeld ? 1.08 : 1) * (containerWidth < 600 ? pileScale : 1);
 
             return (
               <div
@@ -234,7 +235,7 @@ export default function InteractivePile() {
                   position: "absolute",
                   left: 0,
                   bottom: 0,
-                  transform: `translate3d(${currentX}px, ${currentY}px, 0) rotate(${rotate}deg) scale(${isHeld ? 1.08 : 1})`,
+                  transform: `translate3d(${currentX}px, ${currentY}px, 0) rotate(${rotate}deg) scale(${itemScale})`,
                   transformOrigin: "center bottom",
                   zIndex: isHeld ? 50 : layout.zIndex,
                   touchAction: "none",
@@ -266,7 +267,7 @@ export default function InteractivePile() {
             </span>
           </p>
           <p className="text-[11px] text-muted-foreground/80">
-            psst, this is an ai &amp; security engineer&apos;s site. press{" "}
+            psst, this is a software &amp; backend developer&apos;s site. press{" "}
             <kbd className="px-1.5 py-0.5 rounded border border-border/80 bg-muted/60 text-[10px] font-mono text-foreground shadow-xs">
               r
             </kbd>{" "}

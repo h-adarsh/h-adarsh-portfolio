@@ -39,8 +39,8 @@ export default function Navbar() {
         </a>
 
         {/* Navigation Links & Theme Toggle */}
-        <div className="flex items-center gap-1 sm:gap-2 min-w-0 justify-end">
-          <nav className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium overflow-x-auto no-scrollbar py-1">
+        <div className="flex items-center gap-1 sm:gap-2 min-w-0 justify-end flex-1">
+          <nav className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium overflow-x-auto no-scrollbar py-1 overscroll-x-contain touch-pan-x">
             {[
               { id: "about", label: "about" },
               { id: "work", label: "work" },
@@ -53,7 +53,7 @@ export default function Navbar() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className={`px-2 py-1 rounded-md transition-colors whitespace-nowrap shrink-0 ${
+                className={`px-2 py-1 rounded-md transition-colors whitespace-nowrap shrink-0 text-xs sm:text-sm ${
                   activeSection === item.id
                     ? "text-foreground font-semibold bg-secondary/80"
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"

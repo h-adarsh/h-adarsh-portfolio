@@ -12,12 +12,12 @@ import { ToastProvider } from "@/components/ui/toast";
 export default function App() {
   return (
     <ToastProvider>
-      <div className="min-h-screen bg-background text-foreground antialiased selection:bg-foreground selection:text-background font-sans">
+      <div className="min-h-screen w-full bg-background text-foreground antialiased selection:bg-foreground selection:text-background font-sans overflow-x-hidden">
         {/* Navigation */}
         <Navbar />
 
         {/* Main Content Container (Max width 3xl for clean reading flow) */}
-        <main className="max-w-3xl mx-auto px-4 sm:px-6">
+        <main className="max-w-3xl mx-auto px-4 sm:px-6 w-full min-w-0">
           <Hero />
           <Experience />
           <Projects />

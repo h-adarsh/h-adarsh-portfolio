@@ -23,7 +23,7 @@ export default function Contact() {
           Get in Touch
         </h2>
         <p className="text-xs sm:text-sm font-mono text-muted-foreground mt-1">
-          // open for security engineering, appsec & full-stack opportunities
+          // open for backend, full-stack & software engineering opportunities
         </p>
       </div>
 
@@ -36,7 +36,7 @@ export default function Contact() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 border-y border-border/50 my-6">
           <a
             href={`mailto:${personalInfo.email}`}
-            className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-foreground hover:opacity-80 transition-opacity tracking-tight break-all"
+            className="font-serif text-lg sm:text-3xl lg:text-4xl font-normal text-foreground hover:opacity-80 transition-opacity tracking-tight break-all"
           >
             {personalInfo.email}
           </a>

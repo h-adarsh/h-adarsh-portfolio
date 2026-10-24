@@ -18,34 +18,36 @@ export default function Hero() {
   return (
     <section id="about" className="pt-10 sm:pt-16 pb-12 sm:pb-16 border-b border-border/50">
       {/* Top Profile */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-8">
-        <div className="flex items-center gap-4">
-          <div className="relative group">
+      <div className="mb-8">
+        <div className="flex items-start gap-4 sm:gap-6 min-w-0 w-full">
+          {/* Avatar Container: anchored at top, micro-offset to align with font cap-height */}
+          <div className="relative group shrink-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mt-0.5 sm:mt-1">
             <img
               src="/adarshpp.jpg"
               alt={personalInfo.name}
-              className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover border border-border shadow-sm group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-full rounded-full object-cover border border-border/80 shadow-sm aspect-square shrink-0 group-hover:scale-105 transition-transform duration-300 select-none"
               loading="eager"
             />
           </div>
 
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-sans">
+          <div className="min-w-0 flex-1">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-sans truncate leading-tight">
               {personalInfo.name}
             </h1>
-            <p className="text-sm font-mono text-muted-foreground mt-0.5">
+            <p className="text-xs sm:text-sm font-mono text-muted-foreground mt-1.5 sm:mt-2 leading-normal">
               {personalInfo.role}
             </p>
-            <p className="text-xs text-muted-foreground/80 mt-0.5">
-              📍 {personalInfo.location}
+            <p className="text-xs sm:text-sm text-muted-foreground/80 mt-2 flex items-center gap-1.5">
+              <span>📍</span>
+              <span>{personalInfo.location}</span>
             </p>
             {personalInfo.status && (
-              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-700 dark:text-emerald-400 mt-2">
-                <span className="relative flex h-2 w-2">
+              <div className="inline-flex max-w-full items-center gap-2.5 px-4 py-2 sm:px-4.5 sm:py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] sm:text-xs font-mono text-emerald-700 dark:text-emerald-400 mt-3 sm:mt-3.5">
+                <span className="relative flex h-2 w-2 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span>{personalInfo.status.text}</span>
+                <span className="leading-normal break-words">{personalInfo.status.text}</span>
               </div>
             )}
           </div>
@@ -69,25 +71,25 @@ export default function Hero() {
           target="_blank"
           rel="noopener noreferrer"
           size="sm"
-          className="gap-2 font-mono text-xs h-9 w-full sm:w-auto"
+          className="gap-2 font-mono text-xs h-9 w-full sm:w-auto px-3 sm:px-3.5"
         >
-          <Download className="h-3.5 w-3.5" />
-          Resume PDF
+          <Download className="h-3.5 w-3.5 shrink-0" />
+          <span className="truncate">Resume PDF</span>
         </Button>
 
         <Button
           variant="outline"
           size="sm"
           onClick={handleCopyEmail}
-          className="gap-2 font-mono text-xs h-9 w-full sm:w-auto"
+          className="gap-2 font-mono text-xs h-9 w-full sm:w-auto px-3 sm:px-3.5"
           title="Click to copy email address"
         >
           {copied ? (
-            <Check className="h-3.5 w-3.5 text-emerald-500" />
+            <Check className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
           ) : (
-            <Copy className="h-3.5 w-3.5 text-muted-foreground" />
+            <Copy className="h-3.5 w-3.5 text-muted-foreground shrink-0" />
           )}
-          <span>{copied ? "Copied!" : "Copy Email"}</span>
+          <span className="truncate">{copied ? "Copied!" : "Copy Email"}</span>
         </Button>
 
         <Button
@@ -96,11 +98,11 @@ export default function Hero() {
           href={personalInfo.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="gap-1.5 font-mono text-xs h-9 text-muted-foreground hover:text-foreground w-full sm:w-auto justify-center"
+          className="gap-1.5 font-mono text-xs h-9 text-muted-foreground hover:text-foreground w-full sm:w-auto justify-center px-3 sm:px-3.5"
         >
-          <Github className="h-3.5 w-3.5" />
-          GitHub
-          <ArrowUpRight className="h-3 w-3 opacity-60" />
+          <Github className="h-3.5 w-3.5 shrink-0" />
+          <span>GitHub</span>
+          <ArrowUpRight className="h-3 w-3 opacity-60 shrink-0" />
         </Button>
 
         <Button
@@ -109,11 +111,11 @@ export default function Hero() {
           href={personalInfo.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="gap-1.5 font-mono text-xs h-9 text-muted-foreground hover:text-foreground w-full sm:w-auto justify-center"
+          className="gap-1.5 font-mono text-xs h-9 text-muted-foreground hover:text-foreground w-full sm:w-auto justify-center px-3 sm:px-3.5"
         >
-          <Linkedin className="h-3.5 w-3.5" />
-          LinkedIn
-          <ArrowUpRight className="h-3 w-3 opacity-60" />
+          <Linkedin className="h-3.5 w-3.5 shrink-0" />
+          <span>LinkedIn</span>
+          <ArrowUpRight className="h-3 w-3 opacity-60 shrink-0" />
         </Button>
       </div>
 
