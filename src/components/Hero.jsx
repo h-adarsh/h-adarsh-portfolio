@@ -42,13 +42,10 @@ export default function Hero() {
               <span>{personalInfo.location}</span>
             </p>
             {personalInfo.status && (
-              <div className="inline-flex max-w-full items-center gap-2.5 px-4 py-2 sm:px-4.5 sm:py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] sm:text-xs font-mono text-emerald-700 dark:text-emerald-400 mt-3 sm:mt-3.5">
-                <span className="relative flex h-2 w-2 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="leading-normal break-words">{personalInfo.status.text}</span>
-              </div>
+              <p className="text-xs sm:text-sm text-muted-foreground/80 mt-1.5 flex items-center gap-1.5">
+                <span>💼</span>
+                <span>{personalInfo.status.text}</span>
+              </p>
             )}
           </div>
         </div>

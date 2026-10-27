@@ -6,8 +6,7 @@ export const personalInfo = {
   location: "Kolkata, India",
   status: {
     available: true,
-    text: "Developer Intern in InfoSec dept @ Titan (Jan – Aug 2026)",
-    dotColor: "bg-emerald-500",
+    text: "Software Developer Intern in InfoSec Dept @ Titan (Jan – Aug 2026)",
   },
   bio: [
     "Hi, I'm Adarsh. I build software that connects application security, robust backend infrastructure, and modern AI. I'm drawn to first-principles thinking, clean abstractions, and systems that hold up reliably under pressure.",
@@ -28,7 +27,7 @@ export const personalInfo = {
 
 export const experiences = [
   {
-    role: "Developer Intern in InfoSec Dept",
+    role: "Software Developer Intern in InfoSec Dept",
     company: "Titan Company Limited",
     location: "Bengaluru, India",
     period: "12 Jan 2026 — 10 Aug 2026",
