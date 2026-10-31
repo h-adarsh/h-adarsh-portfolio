@@ -12,7 +12,7 @@ export default function Kit() {
           The Kit & Arsenal
         </h2>
         <p className="text-xs sm:text-sm font-mono text-muted-foreground mt-1">
-          // languages, frameworks, security primitives & certifications
+          // languages, frameworks, AI engineering, security & infrastructure
         </p>
       </div>
 
